@@ -58,6 +58,9 @@ button[type="submit"]:hover {
     color: #a9a9a947;
     width: 160%;
 }
+#apppopupmax {
+    display: none;
+}
 @media (min-width: 992px) {
     .bg {
         font-size: 160px;

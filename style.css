@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh; /* Set the height of the body to the full viewport height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.subscription-container {
+    /*display: flex;*/
+    /*flex-wrap: wrap;*/
+    justify-content: center;
+    /*align-items: center;*/
+    margin-bottom: 20px;
+    z-index: 1;
+    position: relative;
+}
+
+label {
+    margin-right: 10px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: block;
+}
+
+input[type="email"] {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-right: 10px;
+}
+
+input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+button[type="submit"] {
+    padding: 8px 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+#message {
+    margin-top: 10px;
+    font-weight: bold;
+}
+.bg {
+    position: fixed;
+    font-size: 100px;
+    transform: rotateZ(-29deg);
+    color: #a9a9a947;
+    width: 160%;
+}
+@media (min-width: 992px) {
+    .bg {
+        font-size: 160px;
+    }
+}

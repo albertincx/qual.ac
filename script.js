@@ -2,18 +2,26 @@ const subscribeBtn = document.getElementById('subscribe-btn');
 const emailInput = document.getElementById('email');
 const messageDiv = document.getElementById('message');
 let chatLoaded;
-
+let load = false;
 const onConnectIvChatSend = (txt) => {
     if (window.__arsfChat) {
-        window.__arsfChat.sendMessage(txt);
+        txt && window.__arsfChat.sendMessage(txt);
+        emailInput.value = '';
+
         chatLoaded = true;
+        setTimeout(() => {
+            if (window.__arsfChatDestroy) {
+                window.__arsfChatDestroy();
+            }
+        }, 1000)
     }
     if (window.__arsfChatDestroy) {
         window.__arsfChatDestroy();
     }
 };
 const onLoad = () => {
-    onConnectIvChatSend(`subscribe ${emailInput.value}`)
+    let v = emailInput.value;
+    onConnectIvChatSend(v && `subscribe ${v}`)
 };
 
 window.onConnectIvChat = onLoad;
@@ -35,8 +43,9 @@ subscribeBtn.addEventListener('click', function (event) {
 
         if (chatLoaded) {
             onLoad();
-            emailInput.value = '';
         } else {
+            load = true;
+            subscribeBtn.setAttribute('disabled', true);
             window.__arsfChatIdg = '1002238842457_S';
             let startSrc = '//cafechat.app/start.js';
             let dev = false;
